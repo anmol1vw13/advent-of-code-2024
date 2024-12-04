@@ -55,6 +55,6 @@ const run = async (filePath: string) => {
 
 console.log(
   await run(
-    '/Users/1.mole/Documents/repositories/personal/advent-of-code-2024/day2/part1/input.txt'
+    '/Users/1.mole/Documents/repositories/personal/advent-of-code-2024/day2/part2/input.txt'
   )
 );
