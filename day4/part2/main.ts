@@ -6,7 +6,7 @@ export const run = (text: string) => {
   let count = 0;
   const word = 'MAS';
   const eligibleWords = [word, word.split('').reverse().join('')];
-  const map = new Map<number, Array<boolean>>();
+  const map = new Map<string, Array<boolean>>();
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (word.startsWith(matrix[i][j]) || word.endsWith(matrix[i][j])) {
@@ -31,7 +31,7 @@ export const run = (text: string) => {
           }
         }
 
-        const index = i * 10 + j;
+        const index = i + '-' + j;
 
         map.set(
           index,
@@ -41,12 +41,10 @@ export const run = (text: string) => {
     }
   }
 
-  console.log(map);
-
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      const index1 = i * 10 + j;
-      const index2 = i * 10 + j + 2;
+      const index1 = i + '-' + j;
+      const index2 = i + '-' + (j + 2);
       if (map.has(index1) && map.has(index2)) {
         const rightWord = map.get(index1)![1];
         const leftWord = map.get(index2)![0];
